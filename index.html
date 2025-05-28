@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>贵州自驾之旅 - 2025年8月</title>
+    <title>贵州家庭自驾奇遇记 - 2025年8月 (最终路线)</title>
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&family=SF+Pro+Text:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -18,7 +18,7 @@
             --border-radius: 12px;
             --system-blue: #007aff;
             --system-green: #34c759;
-            --system-orange: #ff9500;
+            --system-orange: #ff9500; /* This is the "earthy yellow" for names */
             --system-red: #ff3b30;
             --system-purple: #af52de;
             --system-teal: #5ac8fa;
@@ -28,6 +28,10 @@
             --system-gray: #8e8e93;
             --font-sans-apple: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
             --font-serif-apple: "SF Pro Display", "Georgia", Times, serif;
+
+            /* Custom colors for family roles */
+            --color-name: var(--system-orange); /* Unified color for all names */
+            --color-role: var(--system-green); /* Color for the role descriptions */
         }
 
         body {
@@ -62,16 +66,37 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        .hero p {
+        .hero p.subtitle {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
             font-weight: 300;
         }
+        .hero .family-roles {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            padding: 0 20px;
+            line-height: 1.8; 
+        }
+        .hero .family-roles .name-zxy,
+        .hero .family-roles .name-zxx,
+        .hero .family-roles .name-yan,
+        .hero .family-roles .name-chao { 
+            color: var(--color-name); 
+            font-weight: bold; 
+        }
+        .hero .family-roles .role-description { 
+            color: var(--color-role); 
+        }
+
         .hero-info {
             display: flex;
             gap: 2rem;
             margin-bottom: 2rem;
             font-size: 1.1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .hero-info span {
             display: flex;
@@ -87,7 +112,7 @@
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
 
         /* Navigation */
-        nav.nav { /* Added .nav class for specificity */
+        nav.nav {
             background-color: rgba(255,255,255,0.8);
             backdrop-filter: blur(10px);
             padding: 1rem 2rem;
@@ -123,16 +148,7 @@
         /* Section Styles */
         .section {
             padding: 4rem 0;
-            /* REMOVED: Initial opacity and transform for immediate visibility */
-            /* opacity: 0; */
-            /* transform: translateY(20px); */
-            /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
         }
-        /* You can still keep the .visible class if you want to apply other animations on scroll later */
-        /* .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        } */
 
         .section-title {
             font-family: var(--font-serif-apple);
@@ -204,15 +220,20 @@
         .icon-red { color: var(--system-red); }
         .icon-indigo { color: var(--system-indigo); }
         .icon-pink { color: var(--system-pink); }
+        .icon-yellow { color: var(--system-yellow); }
+        .icon-gray { color: var(--system-gray); }
+
 
         .color-blue { border-left: 4px solid var(--system-blue); }
         .color-green { border-left: 4px solid var(--system-green); }
         .color-orange { border-left: 4px solid var(--system-orange); }
         .color-purple { border-left: 4px solid var(--system-purple); }
         .color-teal { border-left: 4px solid var(--system-teal); }
-        .color-red { border-left: 4px solid var(--system-red); }
         .color-indigo { border-left: 4px solid var(--system-indigo); }
         .color-pink { border-left: 4px solid var(--system-pink); }
+        .color-red { border-left: 4px solid var(--system-red); }
+        .color-yellow { border-left: 4px solid var(--system-yellow); }
+        .color-gray { border-left: 4px solid var(--system-gray); }
 
 
         /* Detailed Itinerary Specific Styles */
@@ -251,6 +272,7 @@
             display: flex;
             align-items: center;
             font-size: 0.95rem;
+            flex-wrap: wrap;
         }
         .route-icon {
             background-color: var(--accent-color);
@@ -264,6 +286,7 @@
             font-size: 0.8rem;
             margin-right: 0.75rem;
             font-weight: bold;
+            flex-shrink: 0;
         }
         .route-info .route-destination {
             font-weight: 500;
@@ -274,8 +297,9 @@
             color: var(--secondary-text-color);
         }
         .route-arrow {
-            margin: 0 1rem;
+            margin: 0.5rem 1rem;
             color: var(--secondary-text-color);
+            flex-shrink: 0;
         }
         .timeline {
             position: relative;
@@ -327,6 +351,16 @@
             color: var(--secondary-text-color);
             margin-bottom: 0.5rem;
         }
+        .kids-perspective {
+            font-size: 0.9rem;
+            color: var(--system-purple);
+            margin-top: 0.5rem;
+            padding-left: 1em;
+            border-left: 2px solid var(--system-pink);
+        }
+        .kids-perspective strong {
+            color: var(--system-indigo);
+        }
         .timeline-highlight {
             font-size: 0.9rem;
             padding: 0.5rem 0.75rem;
@@ -346,7 +380,7 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
-        .info-card { /* Also used by Practical Info */
+        .info-card {
             background-color: var(--primary-bg);
             padding: 1.5rem;
             border-radius: var(--border-radius);
@@ -389,13 +423,12 @@
              font-size: 0.9rem;
             color: var(--secondary-text-color);
         }
-        /* Practical Info Specific */
-        .info-cards-container { /* Used in Practical Info section */
+        .info-cards-container {
              display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        .info-cards-container .info-card h4 { /* Specific to Practical Info cards if needed */
+        .info-cards-container .info-card h4 {
             font-family: var(--font-serif-apple);
             font-size: 1.1rem;
             font-weight: 500;
@@ -447,7 +480,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.2rem; }
+            .hero p.subtitle { font-size: 1.2rem; }
+            .hero .family-roles { font-size: 1rem; }
             .hero-info { flex-direction: column; gap: 1rem; }
             nav.nav { flex-direction: column; padding: 1rem; }
             nav.nav .nav-title { margin-bottom: 0.5rem; }
@@ -456,6 +490,8 @@
             .day-title { font-size: 1.5rem; }
             .info-cards, .info-cards-container { grid-template-columns: 1fr; }
             .packing-list ul { columns: 1; -webkit-columns: 1; -moz-columns: 1;}
+            .route-step { flex-direction: column; align-items: flex-start; }
+            .route-arrow { transform: rotate(90deg); margin: 0.5rem 0 0.5rem 10px; }
         }
     </style>
 </head>
@@ -463,12 +499,19 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>贵州自驾之旅</h1>
-        <p>山水人文 · 十日精华</p>
+        <h1>贵州家庭自驾奇遇记</h1>
+        <p class="subtitle">山水人文 · 十日精华 (最终路线)</p>
+        <div class="family-roles">
+            本次旅程由<br>
+            <span class="name-zxy">女儿ZXY</span><br>(<span class="role-description">“LABUBU”好奇宝宝</span>)<br>
+            <span class="name-zxx">儿子ZXX</span><br>(<span class="role-description">“草莓熊”旅行鉴赏家</span>)<br>
+            <span class="name-yan">妈妈YAN</span><br>(<span class="role-description">操心的首席旅行规划师</span>)精心策划<br>
+            <span class="name-chao">爸爸CHAO</span><br>(<span class="role-description">勤劳的首席驾驶员</span>)掌舵<br>
+            一同体验！
+        </div>
         <div class="hero-info">
             <span><i class="fas fa-calendar-alt"></i> 2025年8月1日 - 8月10日</span>
-            <span><i class="fas fa-users"></i> ZXX · ZXY · YAN · CHAO</span>
-            <span><i class="fas fa-car"></i> 自驾游</span>
+            <span><i class="fas fa-car"></i> 全家自驾游</span>
         </div>
         <a href="#navigation" class="scroll-indicator" aria-label="Scroll down">
             <i class="fas fa-chevron-down"></i>
@@ -477,12 +520,11 @@
 
     <!-- Navigation Bar -->
     <nav id="navigation" class="nav">
-        <div class="nav-title">贵州自驾之旅</div>
+        <div class="nav-title">贵州自驾奇遇记</div>
         <div class="nav-links">
             <button onclick="scrollToSection('overview')">行程概览</button>
             <button onclick="scrollToSection('details')">详细计划</button>
             <button onclick="scrollToSection('info')">实用信息</button>
-            <!-- 移除了指向地图概览的按钮 -->
         </div>
     </nav>
 
@@ -490,67 +532,69 @@
         <!-- Overview Section -->
         <section id="overview" class="section">
             <h2 class="section-title">行程概览</h2>
-            <p class="section-subtitle">十天精心规划，体验贵州山水人文之美</p>
+            <p class="section-subtitle">十天精心规划，全家体验贵州山水人文之美 (路线已更新)</p>
             <div class="overview-grid">
+                <!-- Day 1-4 -->
                 <div class="overview-card color-blue" onclick="scrollToDay('day-1')">
                     <div class="icon icon-blue"><i class="fas fa-plane-arrival"></i></div>
                     <h3>抵达贵州 · 初探龙里</h3>
                     <div class="date">Day 1 · 8月1日</div>
-                    <p>航班抵达贵阳，驱车前往龙里县，开启精彩旅程的序幕。</p>
+                    <p>航班抵达贵阳，入住龙里，为精彩旅程拉开序幕。</p>
                 </div>
                 <div class="overview-card color-green" onclick="scrollToDay('day-2')">
                     <div class="icon icon-green"><i class="fas fa-water"></i></div>
                     <h3>荔波山水 · 地球绿宝石</h3>
                     <div class="date">Day 2 · 8月2日</div>
-                    <p>一整天深度游览荔波小七孔，感受其秀美与壮丽。</p>
+                    <p>深度游览荔波小七孔，感受“地球腰带上的绿宝石”。</p>
                 </div>
                  <div class="overview-card color-purple" onclick="scrollToDay('day-3')">
-                    <div class="icon icon-purple"><i class="fas fa-home"></i></div>
+                    <div class="icon icon-purple"><i class="fas fa-tree"></i></div>
                     <h3>茂兰秘境 · 漂流乐趣</h3>
                     <div class="date">Day 3 · 8月3日</div>
-                    <p>上午茂兰探索，下午水春河漂流，晚上继续住荔波。</p>
+                    <p>探索茂兰喀斯特森林，体验水春河漂流的清凉。</p>
                 </div>
                 <div class="overview-card color-orange" onclick="scrollToDay('day-4')">
                     <div class="icon icon-orange"><i class="fas fa-archway"></i></div>
                     <h3>苗寨万家灯火</h3>
                     <div class="date">Day 4 · 8月4日</div>
-                    <p>上午前往西江千户苗寨，下午深度游览并欣赏夜景。</p>
+                    <p>走进西江千户苗寨，沉醉于震撼的苗寨夜景。</p>
                 </div>
+                <!-- Day 5-10 REVISED -->
                 <div class="overview-card color-teal" onclick="scrollToDay('day-5')">
-                    <div class="icon icon-teal"><i class="fas fa-water"></i></div>
-                    <h3>苗寨晨韵 · 安顺落脚</h3>
+                    <div class="icon icon-teal"><i class="fas fa-landmark"></i></div>
+                    <h3>苗寨晨韵 · 古镇悠游</h3>
                     <div class="date">Day 5 · 8月5日</div>
-                    <p>感受西江晨景，上午自由游览，下午前往安顺市住宿。</p>
+                    <p>告别西江，前往青岩古镇，体验明清遗风与美食。</p>
                 </div>
                 <div class="overview-card color-indigo" onclick="scrollToDay('day-6')">
-                    <div class="icon icon-indigo"><i class="fas fa-water"></i></div>
-                    <h3>黄果树奇观 · 震撼体验</h3>
+                    <div class="icon icon-indigo"><i class="fas fa-hiking"></i></div>
+                    <h3>古镇启程 · 峡谷探险</h3>
                     <div class="date">Day 6 · 8月6日</div>
-                    <p>全天深度游览黄果树瀑布群，感受陡坡塘、天星桥及大瀑布的雄奇。</p>
+                    <p>从青岩出发，奔赴兴义，游览壮丽的马岭河峡谷。</p>
                 </div>
                 <div class="overview-card color-pink" onclick="scrollToDay('day-7')">
-                    <div class="icon icon-pink"><i class="fas fa-compass"></i></div>
-                    <h3>龙宫探秘 · 织金落脚</h3>
+                    <div class="icon icon-pink"><i class="fas fa-waterfall"></i></div>
+                    <h3>峡谷回响 · 飞瀑壮歌</h3>
                     <div class="date">Day 7 · 8月7日</div>
-                    <p>上午游览龙宫，下午抵达织金县，入住休息。</p>
+                    <p>告别兴义，前往安顺，全天感受黄果树瀑布的雄奇。</p>
                 </div>
                 <div class="overview-card color-red" onclick="scrollToDay('day-8')">
-                    <div class="icon icon-red"><i class="fas fa-mountain"></i></div>
-                    <h3>织金洞奇景 · 青岩古镇</h3>
+                    <div class="icon icon-red"><i class="fas fa-ship"></i></div>
+                    <h3>水洞奇遇 · 奔赴织金</h3>
                     <div class="date">Day 8 · 8月8日</div>
-                    <p>上午探秘织金洞，下午前往青岩古镇游览，晚上住古镇。</p>
+                    <p>上午船游龙宫探秘，下午驱车前往织金县城。</p>
                 </div>
-                <div class="overview-card color-blue" onclick="scrollToDay('day-9')">
-                    <div class="icon icon-blue"><i class="fas fa-landmark"></i></div>
-                    <h3>青岩古镇 · 贵阳漫游</h3>
+                <div class="overview-card color-yellow" onclick="scrollToDay('day-9')">
+                    <div class="icon icon-yellow"><i class="fas fa-gem"></i></div>
+                    <h3>溶洞瑰宝 · 都市序曲</h3>
                     <div class="date">Day 9 · 8月9日</div>
-                    <p>上午继续品味青岩古镇，下午抵达贵阳市区，游览贵阳景点。</p>
+                    <p>探秘“溶洞之王”织金洞，下午抵达贵阳市休整。</p>
                 </div>
-                <div class="overview-card color-green" onclick="scrollToDay('day-10')">
-                    <div class="icon icon-green"><i class="fas fa-plane-departure"></i></div>
-                    <h3>贵阳市区 · 告别返程</h3>
+                <div class="overview-card color-gray" onclick="scrollToDay('day-10')">
+                    <div class="icon icon-gray"><i class="fas fa-city"></i></div>
+                    <h3>爽爽贵阳 · 完美返程</h3>
                     <div class="date">Day 10 · 8月10日</div>
-                    <p>上午贵阳市区游览，下午前往机场返程。</p>
+                    <p>贵阳市区自由活动，品味黔菜，后前往机场返程。</p>
                 </div>
             </div>
         </section>
@@ -562,7 +606,7 @@
                 <p class="section-subtitle">每日精心安排，让旅程更加完美</p>
             </div>
 
-            <!-- Day 1: 抵达贵州 (8月1日 周五 · 贵阳机场 → 龙里县) -->
+            <!-- Day 1-4 (Largely Unchanged) -->
             <div class="day-details" id="day-1">
                 <div class="day-header">
                     <div class="day-title">Day 1 - 抵达贵州</div>
@@ -571,787 +615,272 @@
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">✈️</div>
-                            <div class="route-info"><div class="route-destination">贵阳龙洞堡机场 (KWE)</div><div class="route-details">航班抵达</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                             <div class="route-icon">🚗</div>
-                            <div class="route-info"><div class="route-destination">龙里县</div><div class="route-details">约25公里 / 30分钟</div></div>
+                            <div class="route-icon">✈️</div><div class="route-info"><div class="route-destination">贵阳龙洞堡机场</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-icon">🚗</div><div class="route-info"><div class="route-destination">龙里县</div><div class="route-details">~30min</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">21:30</div>
-                                <div class="timeline-title">航班抵达贵阳龙洞堡机场 (KWE)</div>
-                                <div class="timeline-description">办理出关手续，提取行李。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">21:30 - 22:30</div>
-                                <div class="timeline-title">办理租车</div>
-                                <div class="timeline-description">前往机场租车柜台，办理提车手续。爸爸CHAO请仔细核对车辆信息、保险条款，并检查车辆状况。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">22:30 - 23:00</div>
-                                <div class="timeline-title">驱车前往龙里县</div>
-                                <div class="timeline-description">车程约30分钟 (25公里)。爸爸CHAO驾驶，夜间请注意安全。妈妈YAN协助导航。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">23:00 onwards</div>
-                                <div class="timeline-title">入住龙里酒店</div>
-                                <div class="timeline-description">办理入住，安顿行李。孩子们ZXX和ZXY可以先简单洗漱。早点休息，为明日精彩行程储备精力。</div>
-                                <div class="timeline-highlight"><i class="fas fa-moon"></i> 贵州之旅正式开始！</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">21:30</div><div class="timeline-title">航班抵达</div><div class="timeline-description">出关，取行李。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 飞机好大！机场好多灯！ <strong>ZXX:</strong> 落地平稳，期待酒店。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">21:30-22:30</div><div class="timeline-title">办理租车</div><div class="timeline-description">爸爸CHAO核对车辆，妈妈YAN确认导航。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">22:30-23:00</div><div class="timeline-title">驱车前往龙里</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 车窗外像星星！ <strong>ZXX:</strong> 座椅舒适度尚可。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">23:00+</div><div class="timeline-title">入住龙里酒店</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 新房间！床好软！ <strong>ZXX:</strong> 设施齐全度待检验。</div><div class="timeline-highlight"><i class="fas fa-moon"></i> 旅程开始！</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>龙里县城便捷型酒店。</li>
-                                <li>选择靠近高速公路入口的酒店，方便次日出发前往荔波。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐</div>
-                            <ul class="info-list">
-                                <li>由于抵达时间较晚，建议在酒店内或酒店附近简单解决晚餐/夜宵。</li>
-                                <li>可提前准备一些水果、面包或饼干，供孩子们ZXX和ZXY抵达后食用。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>首晚不宜过于劳累，保证全家充足休息。</li>
-                                <li>检查明日行车路线，下载好荔波区域的离线地图。</li>
-                                <li>确认手机漫游或本地SIM卡通话和数据功能正常。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>龙里便捷型酒店。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食</div><ul class="info-list"><li>抵达晚，简餐。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>保证休息。</li></ul></div>
                     </div>
                 </div>
             </div>
-
-            <!-- Day 2: 荔波小七孔深度游 (8月2日 周六 · 龙里 → 荔波小七孔) -->
             <div class="day-details" id="day-2">
-                <div class="day-header">
-                    <div class="day-title">Day 2 - 荔波山水 · 小七孔深度游</div>
-                    <div class="day-subtitle">8月2日 周六 · 龙里县 → 荔波县 (小七孔景区)</div>
-                </div>
+                <div class="day-header"><div class="day-title">Day 2 - 荔波山水 · 小七孔</div><div class="day-subtitle">8月2日 周六 · 龙里 → 荔波 (小七孔)</div></div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">龙里县</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">荔波县 (小七孔景区东门)</div><div class="route-details">约230公里 / 3-3.5小时</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">龙里县</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">荔波 (小七孔)</div><div class="route-details">~230km / 3-3.5h</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:00 - 11:30</div>
-                                <div class="timeline-title">龙里出发，前往荔波小七孔</div>
-                                <div class="timeline-description">在酒店享用早餐后启程。爸爸CHAO驾驶，预计途中在服务区休息1次（约20分钟），妈妈YAN可准备些路上的小零食。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">11:30 - 12:30</div>
-                                <div class="timeline-title">抵达荔波县城/景区附近，享用午餐</div>
-                                <div class="timeline-description">品尝当地特色菜，如豆花烤鱼、荔波牛肉粉。为孩子们ZXX和ZXY点些清淡口味的菜。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">13:00 - 18:00</div>
-                                <div class="timeline-title">全天深度游览【荔波小七孔景区】（东门进，西门出）</div>
-                                <div class="timeline-description">小七孔景区包含了大七孔景区的精华。您有充足时间深度探索：<strong>小七孔古桥、拉雅瀑布、六十八级跌水瀑布、水上森林（孩子们ZXX和ZXY最喜欢的亲水点）、卧龙潭</strong>。如果时间和体力允许，可选择鸳鸯湖划船或深入探索水上森林等区域。留足时间慢慢欣赏“地球腰带上的绿宝石”的秀美。</div>
-                                <div class="timeline-highlight"><i class="fas fa-tint"></i> 地球腰带上的绿宝石，全家尽享亲水乐趣</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">18:00 onwards</div>
-                                <div class="timeline-title">前往荔波县城酒店/客栈，办理入住并晚餐</div>
-                                <div class="timeline-description">从景区西门离开。安顿好后，在荔波县城品尝当地美食。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:00-11:30</div><div class="timeline-title">龙里出发至荔波</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 外面的山绿油油！去看瀑布吗？ <strong>ZXX:</strong> 希望服务区有特色小吃。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">11:30-12:30</div><div class="timeline-title">荔波午餐</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 这个鱼香香的！ <strong>ZXX:</strong> 豆花烤鱼火候关键。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">13:00-18:00</div><div class="timeline-title">游览【荔波小七孔】</div><div class="timeline-description">小七孔古桥、拉雅瀑布、水上森林、卧龙潭。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 水上森林可以踩水！瀑布声音好大！潭水像果冻！ <strong>ZXX:</strong> 景致名不虚传，水质清澈，体验独特。</div><div class="timeline-highlight"><i class="fas fa-tint"></i> 地球腰带上的绿宝石</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:00+</div><div class="timeline-title">入住荔波酒店，晚餐</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>荔波县城酒店或景区附近特色客栈。</li>
-                                <li>考虑家庭房或相连房间。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (荔波)</div>
-                            <ul class="info-list">
-                                <li>经济(¥50-80): 豆花烤鱼, 牛肉/羊肉粉 🌶️, 丝娃娃.</li>
-                                <li>舒适(¥80-120): 荔波本地酸汤鱼 🌶️🌶️, 樟江烤鱼, 臭酸 (特色，可尝试).</li>
-                                <li>特色(¥120+): 瑶山土鸡宴 (可要求少辣/免辣), 野菜火锅.</li>
-                                <li>女儿ZXY和妈妈YAN注意选择少辣或不辣菜品。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>小七孔景区较大，游览时间长，多为栈道步行，务必穿舒适防滑的鞋子。</li>
-                                <li>夏季阳光强烈，注意防晒；水边蚊虫可能较多，备好防蚊用品。</li>
-                                <li>学生证(ZXX, ZXY)可享受门票优惠，记得携带。</li>
-                                <li>景区内交通车是必须的，合理安排游玩顺序。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>荔波县城或景区客栈。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (荔波)</div><ul class="info-list"><li>豆花烤鱼, 牛肉粉 🌶️, 酸汤鱼 🌶️🌶️.</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>舒适防滑鞋。防晒防蚊。</li></ul></div>
                     </div>
                 </div>
             </div>
-
-            <!-- Day 3: 茂兰 & 水春河漂流 (8月3日 周日 · 荔波 → 荔波) -->
             <div class="day-details" id="day-3">
-                <div class="day-header">
-                    <div class="day-title">Day 3 - 茂兰秘境 · 漂流乐趣</div>
-                    <div class="day-subtitle">8月3日 周日 · 荔波县 (茂兰/水春河) → 荔波县</div>
-                </div>
+                <div class="day-header"><div class="day-title">Day 3 - 茂兰秘境 · 漂流</div><div class="day-subtitle">8月3日 周日 · 荔波 (茂兰/水春河)</div></div>
                 <div class="day-content">
                      <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">荔波县</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">茂兰保护区 / 水春河漂流</div><div class="route-details">车程约30-40分钟</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">荔波县</div><div class="route-details">返回荔波住宿</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">荔波县</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">茂兰/水春河</div><div class="route-details">~30-40min</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">荔波县</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:30 - 12:30</div>
-                                <div class="timeline-title">上午：探访【茂兰国家级自然保护区】</div>
-                                <div class="timeline-description">早餐后，驱车前往茂兰。这里是喀斯特森林生态的典型代表，适合喜欢原始自然风光和徒步的家庭。可选择游览青龙涧、拉孔瀑布等区域。儿子ZXX可能会对这里的生态环境和探险感更感兴趣。请根据家人体力和兴趣，选择合适的游览路线，无需走完全程。</div>
-                                <div class="timeline-highlight"><i class="fas fa-leaf"></i> 世界遗产地，原始喀斯特森林</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">12:30 - 13:30</div>
-                                <div class="timeline-title">午餐</div>
-                                <div class="timeline-description">在茂兰景区附近或返回荔波县城解决午餐。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">14:00 - 16:00</div>
-                                <div class="timeline-title">下午活动：【水春河漂流】</div>
-                                <div class="timeline-description">天气晴好且家人有兴趣，可以体验荔波水春河漂流。水春河漂流相对温和，适合家庭参与，全程约1-2小时，沿途可欣赏两岸风光，享受夏日亲水乐趣。爸爸CHAO和妈妈YAN可评估孩子ZXX和ZXY的接受程度。</div>
-                                <div class="timeline-highlight"><i class="fas fa-ship"></i> 激流勇进，夏日亲水乐趣</div>
-                            </div>
-                        </div>
-                         <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">16:30 onwards</div>
-                                <div class="timeline-title">返回荔波县城酒店，晚餐</div>
-                                <div class="timeline-description">漂流结束后，返回荔波县城。安顿好后，在荔波县城品尝当地美食，好好休息。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:30-12:30</div><div class="timeline-title">探访【茂兰保护区】</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 好多树！有蝴蝶！瀑布水凉凉！ <strong>ZXX:</strong> 生态系统保持不错，空气清新。</div><div class="timeline-highlight"><i class="fas fa-leaf"></i> 原始喀斯特森林</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-13:30</div><div class="timeline-title">午餐</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:00-16:00</div><div class="timeline-title">【水春河漂流】</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 呀呼！小船漂呀漂！打水仗！ <strong>ZXX:</strong> 刺激程度适中，趣味性合格。</div><div class="timeline-highlight"><i class="fas fa-ship"></i> 夏日亲水乐趣</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">16:30+</div><div class="timeline-title">返回荔波酒店，晚餐</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>继续入住荔波县城酒店。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (荔波)</div>
-                            <ul class="info-list">
-                                <li>荔波：品尝当地特色美食，可尝试不同的餐厅。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>茂兰保护区部分区域需徒步，请穿舒适鞋子，注意防晒和防蚊。</li>
-                                <li>水春河漂流需穿救生衣，做好防水措施，并备好更换衣物。</li>
-                                <li>确保漂流安全，遵守景区规定。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>继续住荔波。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食</div><ul class="info-list"><li>荔波特色。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>茂兰徒步，漂流备换衣物。</li></ul></div>
                     </div>
                 </div>
             </div>
-
-            <!-- Day 4: 苗寨万家灯火 (8月4日 周一 · 荔波 → 西江千户苗寨) -->
-            <div class="day-details" id="day-4">
-                <div class="day-header">
-                    <div class="day-title">Day 4 - 苗寨万家灯火</div>
-                    <div class="day-subtitle">8月4日 周一 · 荔波县 → 西江千户苗寨</div>
-                </div>
+             <div class="day-details" id="day-4">
+                <div class="day-header"><div class="day-title">Day 4 - 苗寨万家灯火</div><div class="day-subtitle">8月4日 周一 · 荔波 → 西江千户苗寨</div></div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">荔波县</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">西江千户苗寨</div><div class="route-details">约260公里 / 3.5-4小时</div></div>
+                           <div class="route-icon">起</div><div class="route-info"><div class="route-destination">荔波县</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                           <div class="route-info"><div class="route-destination">西江苗寨</div><div class="route-details">~260km / 3.5-4h</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:30 - 12:30</div>
-                                <div class="timeline-title">荔波出发，前往西江千户苗寨</div>
-                                <div class="timeline-description">早餐后驱车前往西江千户苗寨。车程较远，爸爸CHAO注意驾驶，途中可安排服务区休息。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">12:30 - 14:00</div>
-                                <div class="timeline-title">抵达西江，午餐 & 办理入住</div>
-                                <div class="timeline-description">抵达西江景区后，将车停在景区外停车场，乘坐观光车进入景区。办理客栈入住并享用午餐。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">14:00 - 18:00</div>
-                                <div class="timeline-title">下午：游览【西江千户苗寨】</div>
-                                <div class="timeline-description">深度探索西江。可以逛逛寨内小巷、体验苗族风情、参观苗族博物馆，或感受芦笙场的文化表演。为孩子们ZXX和ZXY挑选一些苗族特色的纪念品。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">18:00 onwards</div>
-                                <div class="timeline-title">晚餐 & 欣赏【西江千户苗寨夜景】</div>
-                                <div class="timeline-description">在苗寨内享用特色晚餐，如苗家酸汤鱼、长桌宴。之后前往观景台，欣赏世界最大的苗族村寨万家灯火的震撼夜景。</div>
-                                <div class="timeline-highlight"><i class="fas fa-star"></i> 万家灯火，如梦似幻的苗寨之夜</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:30-12:30</div><div class="timeline-title">荔波出发至西江</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-14:00</div><div class="timeline-title">抵达西江，午餐 & 入住</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 好多木头房子！像积木！ <strong>ZXX:</strong> 规模壮观，吊脚楼独特。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:00-18:00</div><div class="timeline-title">游览【西江千户苗寨】</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 路弯弯曲曲！鼓好大！银饰亮闪闪！ <strong>ZXX:</strong> 博物馆了解文化，芦笙场有特色。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:00+</div><div class="timeline-title">晚餐 & 赏【西江夜景】</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 哇！灯亮了！像星星掉下来！ <strong>ZXX:</strong> 夜景名不虚传，酸汤鱼待品鉴。</div><div class="timeline-highlight"><i class="fas fa-star"></i> 万家灯火，如梦似幻</div></div></div>
                     </div>
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>西江千户苗寨内观景客栈（务必提前旺季预订，选择评价好、视野佳的）。</li>
-                                <li>注意西江的客栈多在山上，行李搬运可能需体力。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (西江)</div>
-                            <ul class="info-list">
-                                <li>苗家酸汤鱼、长桌宴（需提前预订）、米豆腐、糍粑。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>西江景区不允许私家车进入，需乘坐景区观光车。大件行李可寄存游客中心。</li>
-                                <li>夜景非常美，但注意人流量，看管好孩子。</li>
-                            </ul>
-                        </div>
+                     <div class="info-cards">
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>西江观景客栈。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (西江)</div><ul class="info-list"><li>酸汤鱼, 长桌宴。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>私家车禁入。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 5: 苗寨晨韵 → 安顺落脚 (8月5日 周二 · 西江 → 安顺) -->
+            <!-- Day 5: 西江 → 青岩古镇 -->
             <div class="day-details" id="day-5">
                 <div class="day-header">
-                    <div class="day-title">Day 5 - 苗寨晨韵 · 安顺落脚</div>
-                    <div class="day-subtitle">8月5日 周二 · 西江千户苗寨 → 安顺市</div>
+                    <div class="day-title">Day 5 - 苗寨晨韵 · 古镇悠游</div>
+                    <div class="day-subtitle">8月5日 周二 · 西江千户苗寨 → 青岩古镇</div>
                 </div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">西江苗寨</div><div class="route-details">上午活动后</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">安顺市</div><div class="route-details">约230公里 / 3小时</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">西江苗寨</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">青岩古镇</div><div class="route-details">约200km / 3h</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">06:30 - 09:00</div>
-                                <div class="timeline-title">西江苗寨晨景 & 早餐 & 自由活动</div>
-                                <div class="timeline-description">早起可欣赏苗寨宁静的日出和晨雾景色，是摄影的好时机。在客栈或寨内用早餐。之后可自由逛逛，如参观苗族博物馆、芦笙场，或孩子们ZXX和ZXY体验一下“稻田抓鱼”（季节性，需咨询当地，若有此活动儿子ZXX会觉得很有趣）。</div>
-                            </div>
-                        </div>
-                         <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">09:00 - 12:00</div>
-                                <div class="timeline-title">西江出发，前往安顺市</div>
-                                <div class="timeline-description">爸爸CHAO驾驶，途中安排休息1次。妈妈YAN可以给孩子们ZXX和ZXY讲讲贵州的风土人情。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">12:00 - 13:00</div>
-                                <div class="timeline-title">抵达安顺，办理入住，午餐</div>
-                                <div class="timeline-description">抵达安顺市区，办理酒店入住。午餐可在酒店附近或安顺市区品尝当地小吃。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">14:00 onwards</div>
-                                <div class="timeline-title">安顺市区自由活动 / 休息</div>
-                                <div class="timeline-description">下午可选择在酒店休息调整，或在安顺市区简单逛逛，为明日的黄果树之行养精蓄锐。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">07:30-09:30</div><div class="timeline-title">西江苗寨晨景 & 早餐</div><div class="timeline-description">感受宁静的苗寨清晨，后用早餐，稍作休整。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 早上的寨子好安静！小鸟在唱歌！ <strong>ZXX:</strong> 清晨是品味苗寨原始风貌的好时机。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">10:00-13:00</div><div class="timeline-title">西江出发，驱车前往青岩古镇</div><div class="timeline-description">爸爸CHAO驾驶，妈妈YAN可以给孩子们讲讲古镇的故事。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">13:00-14:00</div><div class="timeline-title">抵达青岩古镇，办理入住 & 午餐</div><div class="timeline-description">在古镇外或镇内餐馆享用午餐，后入住客栈。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:30-18:00</div><div class="timeline-title">游览【青岩古镇】</div><div class="timeline-description">漫步古镇石板街，参观古建筑群，感受明清遗风。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 石头路踩上去咯吱响！好多好吃的！我要吃卤猪脚和玫瑰冰粉！ <strong>ZXX:</strong> 古镇建筑保存完好，历史底蕴浓厚。各种小吃是亮点，状元蹄名不虚传。</div><div class="timeline-highlight"><i class="fas fa-landmark"></i> 古镇寻味，历史印记</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:30 onwards</div><div class="timeline-title">晚餐 & 古镇夜游 (可选)</div><div class="timeline-description">在古镇内品尝特色晚餐。夜晚的古镇灯光亮起，另有一番风味。</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>安顺市区选择舒适便捷的酒店。</li>
-                                <li>考虑靠近市中心或餐饮方便的区域，便于后续前往黄果树。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (安顺)</div>
-                            <ul class="info-list">
-                                <li>经济(¥50-80): 安顺小锅凉粉 🌶️, 荞凉粉, 砂锅粉, 裹卷.</li>
-                                <li>舒适(¥80-120): 夺夺粉火锅 🌶️, 安顺破酥包, 油炸粑稀饭.</li>
-                                <li>女儿ZXY和妈妈YAN注意选择少辣或不辣菜品。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>西江到安顺车程较远，爸爸CHAO注意驾驶安全。</li>
-                                <li>安顺市区海拔约1300米。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>青岩古镇内或周边特色客栈/酒店。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (青岩)</div><ul class="info-list"><li>卤猪脚 (状元蹄), 糕粑稀饭, 青岩豆腐, 玫瑰冰粉, 鸡辣角。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>古镇内石板路多，穿舒适鞋。旺季人多。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 6: 黄果树深度游 (8月6日 周三 · 安顺 → 黄果树 → 安顺) -->
+            <!-- Day 6: 青岩古镇 → 兴义 (马岭河峡谷) -->
             <div class="day-details" id="day-6">
                 <div class="day-header">
-                    <div class="day-title">Day 6 - 黄果树奇观 · 深度体验</div>
-                    <div class="day-subtitle">8月6日 周三 · 安顺市 → 黄果树国家公园</div>
+                    <div class="day-title">Day 6 - 古镇启程 · 峡谷探险</div>
+                    <div class="day-subtitle">8月6日 周三 · 青岩古镇 → 兴义市 (马岭河峡谷)</div>
                 </div>
                 <div class="day-content">
-                     <div class="route-map">
+                    <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">安顺市</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">黄果树景区</div><div class="route-details">约45公里 / 1小时</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">青岩古镇</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">兴义市</div><div class="route-details">约320km / 4-4.5h</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">马岭河峡谷</div><div class="route-details">兴义市区出发约20min</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:30 - 10:00</div>
-                                <div class="timeline-title">游览【陡坡塘瀑布景区】</div>
-                                <div class="timeline-description">黄果树瀑布群中最宽的瀑布，是《西游记》片尾曲中唐僧师徒涉水场景的取景地。相对轻松，适合作为游览的第一站。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">10:00 - 13:00</div>
-                                <div class="timeline-title">游览【天星桥景区】</div>
-                                <div class="timeline-description">精华段推荐：天星盆景、天星洞、水上石林。这里移步换景，奇石林立，水流蜿蜒。孩子们ZXX和ZXY会喜欢这里的奇特地貌和“数生步”的乐趣。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">13:00 - 14:00</div>
-                                <div class="timeline-title">午餐</div>
-                                <div class="timeline-description">在天星桥景区出口附近或大瀑布景区入口处用餐。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">14:00 - 17:30</div>
-                                <div class="timeline-title">游览【黄果树大瀑布】核心景区</div>
-                                <div class="timeline-description">从多个角度全方位欣赏亚洲第一大瀑布的雄伟壮观。体验穿越【水帘洞】（视景区开放情况而定），感受瀑布从身后奔腾而下的巨大轰鸣和水雾。</div>
-                                <div class="timeline-highlight"><i class="fas fa-water"></i> 亚洲第一大瀑布，穿行水帘洞的独特体验</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">17:30 onwards</div>
-                                <div class="timeline-title">返回安顺酒店，晚餐</div>
-                                <div class="timeline-description">结束一天的黄果树深度游览，返回安顺市区酒店休息。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:00-12:30</div><div class="timeline-title">青岩古镇出发，驱车前往兴义市</div><div class="timeline-description">早餐后启程，今日车程较长，爸爸CHAO辛苦。途中服务区休息。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 今天要去爬大峡谷吗？会不会很刺激？ <strong>ZXX:</strong> 长途行车，希望路况良好。期待马岭河的壮丽。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-13:30</div><div class="timeline-title">抵达兴义市，午餐 & 办理酒店入住</div><div class="timeline-description">快速安顿，为下午的峡谷游做准备。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:00-17:30</div><div class="timeline-title">游览【马岭河峡谷】</div><div class="timeline-description">被誉为“地球上最美丽的疤痕”，欣赏峡谷、瀑布群。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 峡谷好深呀！好多小瀑布像白丝带！我们可以走近一点看吗？ <strong>ZXX:</strong> 地貌壮观，切割深度和瀑布群的密集度令人印象深刻，是地质奇观的绝佳鉴赏地。</div><div class="timeline-highlight"><i class="fas fa-hiking"></i> 地球最美疤痕探秘</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:00 onwards</div><div class="timeline-title">返回兴义市区酒店，晚餐</div><div class="timeline-description">品尝兴义羊肉粉等特色美食。</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>安顺市区酒店。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (安顺)</div>
-                            <ul class="info-list">
-                                <li>安顺小锅凉粉、夺夺粉火锅、安顺烙锅。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>黄果树景区一日游览非常紧凑，请务必早起，合理安排时间。</li>
-                                <li>水帘洞内水雾较大，务必做好相机、手机等电子设备的防水保护，建议准备雨衣或防水外套。</li>
-                                <li>洞内地面较为湿滑，请注意行走安全，尤其照顾好孩子。</li>
-                                <li>景区内观光车是必须乘坐的，学生证优惠。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>兴义市区舒适便捷酒店。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (兴义)</div><ul class="info-list"><li>兴义羊肉粉 🌶️, 杠子面, 刷把头, 酸菜炒汤圆。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>马岭河峡谷徒步，穿防滑鞋。部分路段湿滑。夏季防晒补水。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 7: 龙宫探秘 → 织金落脚 (8月7日 周四 · 安顺 → 龙宫 → 织金县) -->
+            <!-- Day 7: 兴义 → 安顺 (黄果树) -->
             <div class="day-details" id="day-7">
                 <div class="day-header">
-                    <div class="day-title">Day 7 - 龙宫探秘 · 织金落脚</div>
-                    <div class="day-subtitle">8月7日 周四 · 安顺市 → 龙宫 → 织金县</div>
+                    <div class="day-title">Day 7 - 峡谷回响 · 飞瀑壮歌</div>
+                    <div class="day-subtitle">8月7日 周四 · 兴义市 → 安顺 (黄果树景区)</div>
                 </div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">安顺市</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">龙宫景区</div><div class="route-details">约30公里 / 40分钟</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">织金县</div><div class="route-details">约110公里 / 1.5-2小时</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">兴义市</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">黄果树景区</div><div class="route-details">约160km / 2-2.5h</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:30 - 09:30</div>
-                                <div class="timeline-title">安顺出发，前往龙宫景区</div>
-                                <div class="timeline-description">早餐后驱车前往龙宫，车程不远。</div>
-                            </div>
-                        </div>
-                         <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">09:30 - 12:30</div>
-                                <div class="timeline-title">游览【龙宫景区】</div>
-                                <div class="timeline-description">龙宫以其神奇的溶洞景观和地下暗河漂流而闻名，有“天下喀斯特，尽在龙宫”的美誉。可体验乘船游览水溶洞，孩子们ZXX和ZXY一定会觉得新奇有趣。参观龙字田、漩塘等景点。</div>
-                                <div class="timeline-highlight"><i class="fas fa-water"></i> 神奇水溶洞，大自然鬼斧神工</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">12:30 - 13:30</div>
-                                <div class="timeline-title">午餐</div>
-                                <div class="timeline-description">在龙宫景区附近解决午餐。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">13:30 - 15:30</div>
-                                <div class="timeline-title">驱车前往织金县</div>
-                                <div class="timeline-description">从龙宫前往织金县城，车程约1.5-2小时。爸爸CHAO注意驾驶，妈妈YAN协助导航。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">15:30 onwards</div>
-                                <div class="timeline-title">抵达织金县，办理入住，晚餐</div>
-                                <div class="timeline-description">抵达织金县城后办理酒店入住。安顿好行李后，晚餐在织金县城品尝当地美食。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:30-11:00</div><div class="timeline-title">兴义出发，驱车前往黄果树景区</div><div class="timeline-description">早餐后，爸爸CHAO驾驶前往下一站。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">11:00-12:00</div><div class="timeline-title">抵达黄果树，午餐 & 办理入住 (若住景区附近)</div><div class="timeline-description">如果住在安顺市区，则先午餐后前往景区。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-18:00</div><div class="timeline-title">全天深度游览【黄果树国家公园】</div><div class="timeline-description">游览陡坡塘瀑布、天星桥景区、黄果树大瀑布 (含水帘洞)。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 大瀑布！好壮观！水雾喷到脸上了！穿过水帘洞的时候好刺激！天星桥好像迷宫！ <strong>ZXX:</strong> 黄果树大瀑布气势非凡，水帘洞体验独特。天星桥后半段景致秀美。</div><div class="timeline-highlight"><i class="fas fa-waterfall"></i> 亚洲第一大瀑布，震撼体验</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:30 onwards</div><div class="timeline-title">晚餐 & 入住酒店 (安顺市区或黄果树附近)</div><div class="timeline-description">好好休息，恢复体力。</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>织金县城酒店或景区周边特色客栈。</li>
-                                <li>旺季建议提前预订。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (织金)</div>
-                            <ul class="info-list">
-                                <li>经济(¥50-80): 织金烙锅 🌶️🌶️, 荞凉粉 🌶️, 织金发粑.</li>
-                                <li>舒适(¥80-120): 织金竹荪鸡火锅, 宫保鸡丁 (当地做法).</li>
-                                <li>特色(¥120+): 品尝当地特色野菜、织金腊肉、水八碗。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>龙宫洞内温度较低（约10-15°C），且潮湿，请务必携带薄外套或长袖衣物，穿防滑鞋。</li>
-                                <li>龙宫部分路段可能湿滑。</li>
-                                <li>龙宫到织金县城车程约1.5-2小时，需要合理安排时间。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>安顺市区或黄果树景区附近酒店。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (安顺)</div><ul class="info-list"><li>安顺小锅凉粉 🌶️, 夺夺粉火锅 🌶️, 破酥包。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>黄果树游览耗时，早出发。水帘洞防水防滑。学生证。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 8: 织金洞奇景 → 青岩古镇 (8月8日 周五 · 织金 → 织金洞 → 青岩古镇) -->
+            <!-- Day 8: 安顺 (龙宫) → 织金县 -->
             <div class="day-details" id="day-8">
                 <div class="day-header">
-                    <div class="day-title">Day 8 - 织金洞奇景 · 青岩古镇</div>
-                    <div class="day-subtitle">8月8日 周五 · 织金县 → 织金洞景区 → 青岩古镇</div>
+                    <div class="day-title">Day 8 - 水洞奇遇 · 奔赴织金</div>
+                    <div class="day-subtitle">8月8日 周五 · 安顺 (龙宫景区) → 织金县</div>
                 </div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">织金县</div><div class="route-details">酒店早餐后出发</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">织金洞景区</div><div class="route-details">约10公里 / 20分钟</div></div>
-                             <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">青岩古镇</div><div class="route-details">约120公里 / 2小时</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">安顺/黄果树</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">龙宫景区</div><div class="route-details">~30km / 40min</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">织金县</div><div class="route-details">~120km / 1.5-2h (从龙宫)</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">08:30 - 12:00</div>
-                                <div class="timeline-title">上午：游览【织金洞】 & 午餐</div>
-                                <div class="timeline-description">早餐后驱车前往织金洞景区（离县城很近）。游览被誉为“中国溶洞之王”的织金洞，欣赏其宏大奇绝的地下景观。内部游览时间约3小时。午餐可在织金洞景区附近解决。</div>
-                                <div class="timeline-highlight"><i class="fas fa-gem"></i> 岩溶瑰宝，气势恢宏的地下画卷</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">13:00 - 15:00</div>
-                                <div class="timeline-title">驱车前往青岩古镇</div>
-                                <div class="timeline-description">从织金洞前往青岩古镇，车程约2小时。爸爸CHAO注意驾驶，妈妈YAN协助导航。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">15:00 onwards</div>
-                                <div class="timeline-title">抵达青岩古镇，办理入住，游览古镇 & 晚餐</div>
-                                <div class="timeline-description">抵达青岩古镇后办理酒店入住（建议住在古镇内或附近）。购票进入核心景区（请注意门票政策，通常当日有效，如需多日进出请在购票时咨询）。安顿好后，傍晚可以在古镇内自由漫步，感受夜幕降临后的古镇风情，晚餐在古镇内品尝特色美食。</div>
-                                <div class="timeline-highlight"><i class="fas fa-moon"></i> 青岩古镇夜韵，美食飘香</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:30-09:10</div><div class="timeline-title">从住宿地出发，前往龙宫景区</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">09:30-12:30</div><div class="timeline-title">上午：游览【龙宫景区】</div><div class="timeline-description">乘船游览水溶洞，参观龙字田、漩塘等。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 坐船进洞洞！里面黑乎乎的，但有五颜六色的灯照着石头，像龙王的宫殿！ <strong>ZXX:</strong> 龙宫的水溶洞是核心看点，船游体验舒适。喀斯特地貌特征明显。</div><div class="timeline-highlight"><i class="fas fa-ship"></i> 神奇水溶洞探秘</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-13:30</div><div class="timeline-title">午餐</div><div class="timeline-description">龙宫景区附近或返回安顺途中。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:00-16:00</div><div class="timeline-title">驱车前往织金县</div><div class="timeline-description">爸爸CHAO驾驶，妈妈YAN为大家准备小零食。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 明天要去看更大的洞洞吗？会不会有宝藏？ <strong>ZXX:</strong> 期待明日的“溶洞之王”织金洞，希望能名副其实。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">16:00 onwards</div><div class="timeline-title">抵达织金县，办理入住，晚餐</div><div class="timeline-description">为明日的织金洞探险养精蓄锐。</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>青岩古镇内或古镇周边特色客栈/酒店。</li>
-                                <li>选择可停车且方便进出古镇的住宿。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (青岩)</div>
-                            <ul class="info-list">
-                                <li>经济(¥50-80): 卤猪脚 (状元蹄), 糕粑稀饭, 青岩豆腐, 玫瑰冰粉.</li>
-                                <li>舒适(¥80-120): 鸡辣角, 豆腐圆子, 小吃街各种尝试。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>织金洞内常年恒温，请务必携带薄外套或长袖衣物，穿防滑鞋。</li>
-                                <li>织金到青岩古镇路程约2小时，注意驾驶安全。</li>
-                                <li>青岩古镇内多石板路，建议穿舒适的鞋子。古镇海拔约1200米。</li>
-                                <li><strong>青岩古镇门票政策需现场确认，部分区域可能免费，核心区域需购票。如需多次进出核心区，请咨询是否可办理多日票。</strong></li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>织金县城酒店或景区周边客栈。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (织金)</div><ul class="info-list"><li>织金烙锅 🌶️🌶️, 荞凉粉 🌶️, 竹荪鸡火锅, 织金发粑。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>龙宫洞内低温潮湿，备薄外套。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 9: 青岩古镇 · 贵阳漫游 (8月9日 周六 · 青岩古镇 → 贵阳市区) -->
+            <!-- Day 9: 织金洞 → 贵阳市 -->
             <div class="day-details" id="day-9">
                 <div class="day-header">
-                    <div class="day-title">Day 9 - 青岩古镇 · 贵阳漫游</div>
-                    <div class="day-subtitle">8月9日 周六 · 青岩古镇 → 贵阳市区</div>
+                    <div class="day-title">Day 9 - 溶洞瑰宝 · 都市序曲</div>
+                    <div class="day-subtitle">8月9日 周六 · 织金县 (织金洞) → 贵阳市</div>
                 </div>
                 <div class="day-content">
                     <div class="route-map">
                         <div class="route-step">
-                            <div class="route-icon">起</div>
-                            <div class="route-info"><div class="route-destination">青岩古镇</div><div class="route-details">上午游览后</div></div>
-                            <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
-                            <div class="route-info"><div class="route-destination">贵阳市区</div><div class="route-details">约30公里 / 40分钟</div></div>
+                            <div class="route-icon">起</div><div class="route-info"><div class="route-destination">织金县</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">织金洞景区</div><div class="route-details">~20min</div></div> <div class="route-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="route-info"><div class="route-destination">贵阳市</div><div class="route-details">~150km / 2-2.5h (从织金洞)</div></div>
                         </div>
                     </div>
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">上午</div>
-                                <div class="timeline-title">深度游览【青岩古镇】</div>
-                                <div class="timeline-description">利用上午时间，深度探索青岩古镇的各个角落。可以参观古镇内的寺庙、学宫、文昌阁等，感受其独特的明清建筑风格和多元文化融合。孩子们ZXX和ZXY可以参与一些手工体验，如制作扎染或泥塑。在古镇内享用午餐，品尝更多特色小吃。</div>
-                                <div class="timeline-highlight"><i class="fas fa-tree"></i> 慢享古镇风情，品味历史韵味</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">15:00 - 15:40</div>
-                                <div class="timeline-title">青岩古镇出发，前往贵阳市区</div>
-                                <div class="timeline-description">从青岩古镇驱车前往贵阳市区，车程约40分钟。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">15:40 onwards</div>
-                                <div class="timeline-title">抵达贵阳市区，办理入住，游览贵阳景点 & 晚餐</div>
-                                <div class="timeline-description">抵达贵阳市区酒店，办理入住并安顿行李。傍晚可在酒店附近或市中心选择游览【甲秀楼】（贵阳市标志性建筑，历史文化底蕴深厚）或【黔灵山公园】（城市氧吧，观看猕猴，注意安全）。晚餐在贵阳市区品尝特色美食。</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">08:30-12:30</div><div class="timeline-title">上午：游览【织金洞】</div><div class="timeline-description">探秘“中国溶洞之王”，欣赏其宏大奇绝的地下景观。游览时间约3-4小时。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 哇！这个洞好大好大！里面的石头形状好奇怪，有的像冰淇淋，有的像大宫殿！灯光照着好漂亮！ <strong>ZXX:</strong> 织金洞的规模和钟乳石的形态多样性的确是世界级的，不负“溶洞之王”的美誉。其地质构造和景观价值都非常高。</div><div class="timeline-highlight"><i class="fas fa-gem"></i> 岩溶瑰宝，地下画卷</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">12:30-13:30</div><div class="timeline-title">午餐</div><div class="timeline-description">织金洞景区附近或返回织金县城用餐。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">14:00-16:30</div><div class="timeline-title">驱车前往贵阳市</div><div class="timeline-description">爸爸CHAO驾驶，向着旅程的最后一站进发。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">16:30 onwards</div><div class="timeline-title">抵达贵阳市，办理酒店入住，晚餐</div><div class="timeline-description">入住市区酒店，晚餐可品尝贵阳特色美食，如丝娃娃、肠旺面。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 我们到大城市啦！明天可以去买纪念品吗？ <strong>ZXX:</strong> 贵阳作为省会，期待其都市风貌和美食。</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-bed"></i> 住宿安排</div>
-                            <ul class="info-list">
-                                <li>贵阳市区酒店 (可选择靠近市中心或次日方便前往机场的区域)。</li>
-                                <li>确保酒店有停车场。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-utensils"></i> 美食推荐 (贵阳)</div>
-                            <ul class="info-list">
-                                <li>经济(¥50-80): 老凯俚酸汤鱼(分店众多) 🌶️🌶️, 金牌罗记肠旺面 🌶️🌶️, 湖南面.</li>
-                                <li>舒适(¥80-150): 丝恋红汤丝娃娃 🌶️, 龙大哥辣子鸡 🌶️🌶️🌶️, 但家香酥鸭.</li>
-                                <li>点菜时注意女儿ZXY和妈妈YAN的少辣或免辣需求。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意事项</div>
-                            <ul class="info-list">
-                                <li>贵阳市区交通在高峰期可能较为拥堵，合理安排出行时间。</li>
-                                <li>贵阳海拔约1100米。</li>
-                                <li>如果选择黔灵山公园，务必注意与猴群保持安全距离，不要主动喂食或用食物挑逗，以免发生意外。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-bed"></i> 住宿</div><ul class="info-list"><li>贵阳市区便捷舒适酒店。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-utensils"></i> 美食 (贵阳)</div><ul class="info-list"><li>丝娃娃, 肠旺面, 恋爱豆腐果, 状元蹄 (青岩带回或市区再尝)。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-exclamation-circle"></i> 注意</div><ul class="info-list"><li>织金洞内恒温，带外套，防滑。下午抵达贵阳后可稍作休整。</li></ul></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Day 10: 贵阳市区 · 告别返程 (8月10日 周日 · 贵阳市区 → 机场) -->
+            <!-- Day 10: 贵阳市区 · 告别返程 -->
             <div class="day-details" id="day-10">
                 <div class="day-header">
-                    <div class="day-title">Day 10 - 贵阳市区 · 告别返程</div>
+                    <div class="day-title">Day 10 - 爽爽贵阳 · 完美返程</div>
                     <div class="day-subtitle">8月10日 周日 · 贵阳市区 → 贵阳龙洞堡机场 (KWE)</div>
                 </div>
                 <div class="day-content">
                     <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">上午</div>
-                                <div class="timeline-title">贵阳市区游览 / 自由活动 / 购物</div>
-                                <div class="timeline-description">
-                                    <ul class="info-list" style="padding-left:0; margin-left:0; list-style-type: none;">
-                                        <li>上午可参观【贵州省博物馆】（通常免费，需注意开放时间并可能需要提前预约），儿子ZXX可在这里深入了解贵州的历史和民族文化。</li>
-                                        <li>逛逛市中心的【青云路市场】（体验当地生活气息）或【花果园购物中心】（现代化商场），为家人朋友购买当地特产或纪念品。女儿ZXY和儿子ZXY可以一起挑选喜欢的礼物。</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">中午</div>
-                                <div class="timeline-title">告别午餐</div>
-                                <div class="timeline-description">在贵阳市区享用最后一顿丰盛的贵州特色午餐。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">~15:00</div>
-                                <div class="timeline-title">从酒店出发，前往贵阳龙洞堡机场 (KWE)</div>
-                                <div class="timeline-description">考虑到还车和值机时间，提早出发。贵阳市区到机场车程约1小时，但需预留交通拥堵时间。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">17:00</div>
-                                <div class="timeline-title">机场还车</div>
-                                <div class="timeline-description">抵达机场后，前往指定地点办理租车归还手续。爸爸CHAO请仔细检查车辆，确保无遗留物品。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">18:00</div>
-                                <div class="timeline-title">办理值机托运手续</div>
-                                <div class="timeline-description">前往相应航站楼（T2或T3，需提前确认）办理值机、托运行李并通过安检。确保在18:30前完成主要手续，留出充裕时间登机。</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="timeline-time">预估航班时间</div>
-                                <div class="timeline-title">航班起飞</div>
-                                <div class="timeline-description">搭乘航班离开贵阳，结束愉快的贵州10日家庭自驾之旅！</div>
-                                <div class="timeline-highlight"><i class="fas fa-plane-departure"></i> 满载回忆，期待下次再会！</div>
-                            </div>
-                        </div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">上午</div><div class="timeline-title">贵阳市区自由活动</div><div class="timeline-description">根据航班时间，可选择游览【甲秀楼】、【贵州省博物馆】或【黔灵山公园】。</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 甲秀楼建在水上好神奇！博物馆里会不会有恐龙骨头？ <strong>ZXX:</strong> 省博的民族文化展区应有看点，甲秀楼作为地标值得一观。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">中午</div><div class="timeline-title">告别午餐</div><div class="timeline-description">在贵阳市区享用最后一顿贵州特色午餐，回味旅途。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">~15:00</div><div class="timeline-title">出发前往贵阳龙洞堡机场 (KWE)</div><div class="timeline-description">从市区酒店出发，车程约30-40分钟，预留充足时间。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">17:00</div><div class="timeline-title">机场还车</div><div class="timeline-description">爸爸CHAO仔细检查车辆，妈妈YAN核对物品。</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">18:00</div><div class="timeline-title">办理值机托运手续</div></div></div>
+                        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-time">预估航班时间</div><div class="timeline-title">航班起飞</div>
+                        <div class="kids-perspective"><strong>ZXY:</strong> 飞机要飞上天啦！贵州真好玩，下次我还想来！ <strong>ZXX:</strong> 本次贵州之行，景点各具特色，体验丰富。整体行程规划合理，期待下一次的“鉴赏”之旅。</div><div class="timeline-highlight"><i class="fas fa-plane-departure"></i> 满载回忆，期待下次再会！</div></div></div>
                     </div>
                     <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-gift"></i> 伴手礼推荐</div>
-                            <ul class="info-list">
-                                <li>贵州三宝：茅台酒（适量）、蜡染制品、银饰（推荐在正规商店购买）。</li>
-                                <li>特色食品：牛肉干、波波糖、各种菌菇干货、茶叶（如都匀毛尖）。</li>
-                                <li>孩子们ZXX和ZXY可以一起挑选具有民族特色的小手工艺品。</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-plane-departure"></i> 出行提示</div>
-                            <ul class="info-list">
-                                <li>务必提前通过航旅纵横或航空公司APP关注航班动态。</li>
-                                <li>暑期机场人流量大，建议比平时更早抵达机场办理手续。</li>
-                                <li>所有贵重物品、证件、充电宝等请随身携带，不要托运。</li>
-                            </ul>
-                        </div>
-                         <div class="info-card">
-                            <div class="info-card-title"><i class="fas fa-map-marker-alt"></i> 机场信息</div>
-                            <ul class="info-list">
-                                <li>名称：贵阳龙洞堡国际机场</li>
-                                <li>代码：KWE</li>
-                                <li>航站楼：请根据机票信息确认是在T2还是T3航站楼。</li>
-                            </ul>
-                        </div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-gift"></i> 伴手礼</div><ul class="info-list"><li>贵州三宝：茅台酒、蜡染、银饰。特色食品：牛肉干、波波糖、茶叶。</li></ul></div>
+                        <div class="info-card"><div class="info-card-title"><i class="fas fa-plane-departure"></i> 出行提示</div><ul class="info-list"><li>关注航班动态，暑期机场人多，早到。贵重物品随身。</li></ul></div>
+                         <div class="info-card"><div class="info-card-title"><i class="fas fa-map-marker-alt"></i> 机场信息</div><ul class="info-list"><li>贵阳龙洞堡国际机场 (KWE)。确认航站楼T2/T3。</li></ul></div>
                     </div>
                 </div>
             </div>
@@ -1364,97 +893,46 @@
                  <p class="section-subtitle">贴心提示，让旅程更加顺利</p>
             </div>
             <div class="info-cards-container">
-                <div class="info-card">
-                    <h4><i class="fas fa-cloud-sun-rain"></i> 天气与装备</h4>
-                    <p>贵州8月平均气温约为20-28°C，气候较为宜人。但早晚温差较大，且山区多雨，请务必携带雨具和合适的外套。黄果树、织金洞等有水或洞穴区域会更凉。建议穿着舒适防滑的运动鞋或徒步鞋。</p>
-                </div>
-                <div class="info-card">
-                    <h4><i class="fas fa-ticket-alt"></i> 门票优惠政策</h4>
-                    <p>(截至2025年信息，请以官方最新发布为准)</p>
+                <div class="info-card"><h4><i class="fas fa-cloud-sun-rain"></i> 天气与装备</h4><p>贵州8月平均气温20-28°C。早晚温差大，山区多雨，备雨具外套。溶洞及峡谷区域更凉或潮湿。舒适防滑鞋必备。</p></div>
+                <div class="info-card"><h4><i class="fas fa-ticket-alt"></i> 门票优惠政策</h4><p>(以官方为准)</p><ul><li><strong>学生优惠</b></strong>：ZXX, ZXY凭学生证。</li><li><strong>长者优惠</b></b></strong>：60岁以上老人凭证。</li></ul></div>
+                <div class="info-card"><h4><i class="fas fa-car-alt"></i> 自驾安全提示</h4><ul><li>爸爸CHAO连续驾驶不超150分钟，之后休息。</li><li>贵州多山路，弯多坡大，谨慎驾驶。用导航，备离线地图、少量现金。</li></ul></div>
+                <div class="info-card"><h4><i class="fas fa-pepper-hot"></i> 饮食文化须知</h4><ul><li>贵州菜“酸、辣”特色。可要求少辣/免辣。</li><li>品尝特色：酸汤鱼、丝娃娃、羊肉粉等。注意卫生。</li></ul></div>
+                 <div class="info-card"><h4><i class="fas fa-users"></i> 尊重民族传统</h4>
                     <ul>
-                        <li><strong>学生优惠</b></strong>：全国在校大、中、小学生 (如ZXX, ZXY)凭有效学生证享受贵州省内国有A级旅游景区门票免费/半价优惠（具体以景区政策为准）。</li>
-                        <li><strong>长者优惠</b></b></b></strong>：60周岁（含）以上老年人凭身份证等有效证件享受贵州全省国有A级旅游景区门票免费或优惠（具体政策各景区可能不同）。</li>
-                        <li><strong>“一票多日使用制”</b></b></b></strong>：部分景区（如黄果树）门票可能允许多日进入，请在购票时确认。</li>
+                        <li>进入少数民族村寨，尊重当地习俗，不大声喧哗。</li>
+                        <li>参观民居或祭祀场所前，最好先征得主人同意。</li>
+                        <li>苗族：不随意触摸小孩头部；接受拦门酒时表示感谢。</li>
+                        <li>侗族：尊重鼓楼、风雨桥等公共建筑的神圣性。</li>
+                        <li>穿着得体，避免过于暴露的衣物进入村寨。</li>
+                        <li>拍照前征求同意，特别是拍摄老人和小孩。</li>
+                        <li>不随意踩踏田地、菜园，不乱丢垃圾。</li>
                     </ul>
                 </div>
-                <div class="info-card">
-                    <h4><i class="fas fa-car-alt"></i> 自驾安全提示</h4>
+                <div class="info-card"><h4><i class="fas fa-ship"></i> 漂流项目参考</h4><ul><li><strong>荔波水春河漂流</b></strong>: 温和型💧 (Day 3)。</li><li>选正规机构，穿救生衣，防晒，备换洗衣物。</li></ul></div>
+                <div class="info-card"><h4><i class="fas fa-hiking"></i> 峡谷/溶洞提示</h4><ul><li>马岭河峡谷、织金洞等均需较多步行，部分路段湿滑或台阶多。</li><li>溶洞内常年恒温较低，备薄外套。夏季注意防晒补水。</li></ul></div>
+                 <div class="info-card packing-list"><h4><i class="fas fa-suitcase-rolling"></i> 必备物品清单</h4>
                     <ul>
-                        <li>爸爸CHAO连续驾驶不宜超过150分钟（约2.5小时），每次满150分钟后务必休息至少20分钟。</li>
-                        <li>贵州多山路，部分路段弯道多、坡度大，请谨慎驾驶，控制车速，勿疲劳驾驶。</li>
-                        <li>建议使用高德地图或百度地图等主流导航APP，并提前下载好贵州省的离线地图包。</li>
-                        <li>准备适量现金，虽然移动支付普及，但部分偏远地区或小摊贩可能仍需现金。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4><i class="fas fa-pepper-hot"></i> 饮食文化须知</h4>
-                    <ul>
-                        <li>贵州菜以“酸、辣”为主要特色，口味偏重。</li>
-                        <li>点餐时可向服务员说明口味偏好，特别是为女儿ZXY和妈妈YAN选择“微辣”、“少油”或“免辣”的菜品。</li>
-                        <li>品尝当地特色：酸汤鱼、丝娃娃、肠旺面、恋爱豆腐果、雷家豆腐圆子、牛肉粉等。</li>
-                        <li>注意饮食卫生，选择看起来干净整洁、食客较多的餐馆。</li>
-                    </ul>
-                </div>
-                 <div class="info-card">
-                    <h4><i class="fas fa-ship"></i> 漂流项目参考</h4>
-                    <ul>
-                        <li><strong>荔波水春河漂流</b></strong>: 温和型💧 (Day 3 选项，适合家庭)</li>
-                        <li>施秉杉木河漂流: 较刺激型🌊 (距离行程较远)</li>
-                        <li>修文桃源河漂流: 兼有温和与刺激路段 (距离行程较远)</li>
-                        <li>福泉蛤蚌河漂流: 较刺激型🌊 (距离行程较远)</li>
-                        <li>注意：选择正规漂流机构，务必穿戴救生衣，听从安全员指导，做好防晒，准备备用衣物和防水袋。</li>
-                    </ul>
-                </div>
-                <div class="info-card">
-                    <h4><i class="fas fa-binoculars"></i> 小众景点参考 (备选)</h4>
-                     <ul>
-                        <li>镇远古城 (历史文化名城，舞阳河畔)</li>
-                        <li>梵净山 (佛教名山，自然保护区，需较强体力)</li>
-                        <li>肇兴侗寨 (最大的侗族村寨之一，鼓楼群)</li>
-                        <li>提示：以上小众景点距离本次核心行程较远，若时间充裕或未来再访可考虑。</li>
-                    </ul>
-                </div>
-                 <div class="info-card packing-list">
-                    <h4><i class="fas fa-suitcase-rolling"></i> 必备物品清单</h4>
-                    <ul>
-                        <li>身份证、驾驶证(CHAO)</li>
-                        <li>学生证(ZXX, ZXY)</li>
-                        <li>少量现金、银行卡</li>
-                        <li>手机、充电器、大容量充电宝</li>
-                        <li>夏季衣物 (短袖T恤、短裤等)</li>
-                        <li>长袖外套/薄毛衣 (早晚、空调房、溶洞用)</li>
-                        <li>至少一条长裤 (山区、防蚊、部分景点需求)</li>
-                        <li>舒适防滑的运动鞋/徒步鞋</li>
-                        <li>凉鞋/拖鞋 (酒店内或部分涉水活动)</li>
-                        <li>雨伞/一次性雨衣 (山区天气多变)</li>
-                        <li>防晒霜 (高倍数)、太阳帽、太阳镜</li>
-                        <li>常用药品 (感冒药、肠胃药、晕车药、创可贴、驱蚊液、止痒膏)</li>
-                        <li>个人洗漱用品、毛巾 (部分客栈可能不提供)</li>
-                        <li>相机/手机及备用电池、防水袋</li>
-                        <li>双肩背包 (方便携带每日用品)</li>
-                        <li>水杯/保温杯 (环保又实用)</li>
+                        <li>身份证、驾驶证(CHAO)、学生证(ZXX, ZXY)</li><li>现金、银行卡、手机、充电器、充电宝</li>
+                        <li>夏季衣物、长袖外套/薄毛衣、长裤</li><li>舒适防滑运动鞋/徒步鞋、凉鞋/拖鞋</li>
+                        <li>雨伞/雨衣、防晒霜、太阳帽、太阳镜</li><li>常用药品、个人洗漱用品、毛巾</li>
+                        <li>相机/手机及备电、防水袋、背包、水杯</li>
                     </ul>
                 </div>
             </div>
         </section>
         
-        <!-- Mermaid Itinerary Map Section 
-             Removed as per request.
-        -->
-
     </div>
 
     <footer>
-        <p>&copy; 2024 CHAO & YAN's Family Trip Planner. 旅途愉快！</p>
+        <p>&copy; 2025-05-28第三版 CHAO & YAN's Family Trip Planner. 旅途愉快！</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
     <script>
-        // Mermaid initialization is no longer strictly necessary if no mermaid diagrams are used.
-        // Keeping it for future compatibility if diagrams are re-added.
-        mermaid.initialize({startOnLoad:true});
+        if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({startOnLoad:true});
+        }
 
-        // Function to scroll to a section
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -1464,46 +942,23 @@
             }
         }
 
-        // Function to scroll to a specific day in the detailed itinerary
         function scrollToDay(dayId) {
             const dayElement = document.getElementById(dayId);
             if (dayElement) {
                  const navHeight = document.querySelector('nav.nav').offsetHeight;
                  const elementPosition = dayElement.getBoundingClientRect().top;
-                 const offsetPosition = elementPosition + window.pageYOffset - navHeight - 20; // Extra 20px padding for visual comfort
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                 const offsetPosition = elementPosition + window.pageYOffset - navHeight - 20; 
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         }
         
-        // Intersection Observer for potential future animations (currently not affecting visibility)
         const sections = document.querySelectorAll('.section');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // If you want the animation to run only once, uncomment the line below:
-                    // observer.unobserve(entry.target); 
-                } else {
-                    // Optional: remove 'visible' class when out of view if you want to re-trigger animation
-                    // entry.target.classList.remove('visible'); 
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
         };
-
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        sections.forEach(section => { observer.observe(section); });
     </script>
 
 </body>
