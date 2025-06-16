@@ -277,4 +277,86 @@ footer p {
         margin-right: 0.3em;
         text-indent: 0; /* Reset text indent for the ::before itself */
     }
+
+    /* Styling for multilingual features list */
+    .features-multilingual {
+        list-style: none; /* Remove default bullet points */
+        padding-left: 0;
+    }
+
+    .features-multilingual li {
+        margin-bottom: 1.5em; /* Space between feature items */
+        /* padding-left: 1.8em; /* Indent for language indicators - handled by p */
+        position: relative; /* For positioning ::before pseudo-elements */
+    }
+
+    .features-multilingual li p,
+    .multilingual-tips p {
+        margin-bottom: 0.4em; /* Tighter spacing between language versions */
+        position: relative;
+        padding-left: 2.5em; /* Space for language indicators (e.g., "EN:") */
+    }
+
+    .features-multilingual li p:last-child {
+        margin-bottom: 0;
+    }
+
+    .features-multilingual li p[lang="zh-CN"]::before,
+    .features-multilingual li p[lang="en"]::before,
+    .features-multilingual li p[lang="fr"]::before,
+    .multilingual-tips p[lang="zh-CN"]::before,
+    .multilingual-tips p[lang="en"]::before,
+    .multilingual-tips p[lang="fr"]::before {
+        font-weight: bold;
+        color: #00796B; /* Theme color for indicator */
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.2em; /* Adjusted width */
+        display: inline-block;
+    }
+
+    .features-multilingual li p[lang="zh-CN"]::before { content: "中文:"; }
+    .features-multilingual li p[lang="en"]::before { content: "EN:"; }
+    .features-multilingual li p[lang="fr"]::before { content: "FR:"; }
+
+    /* Styling for multilingual travel tips */
+    .multilingual-tips {
+        margin-top: 0.5em;
+    }
+
+    .multilingual-tips p:last-child {
+        margin-bottom: 1em;
+    }
+
+    .multilingual-tips p[lang="zh-CN"]::before { content: "中文:"; }
+    .multilingual-tips p[lang="en"]::before { content: "EN:"; }
+    .multilingual-tips p[lang="fr"]::before { content: "FR:"; }
+
+
+    /* Adjustments for ::before content on smaller screens if needed */
+    @media (max-width: 480px) {
+        .features-multilingual li p,
+        .multilingual-tips p {
+            padding-left: 0;
+            text-indent: -2.5em;
+            margin-left: 2.5em;
+        }
+
+        .features-multilingual li p[lang="zh-CN"]::before,
+        .features-multilingual li p[lang="en"]::before,
+        .features-multilingual li p[lang="fr"]::before,
+        .multilingual-tips p[lang="zh-CN"]::before,
+        .multilingual-tips p[lang="en"]::before,
+        .multilingual-tips p[lang="fr"]::before {
+            position: static;
+            display: inline;
+            width: auto;
+            margin-right: 0.3em;
+            text-indent: 0;
+        }
+        .features-multilingual li {
+            padding-left: 0;
+        }
+    }
 }

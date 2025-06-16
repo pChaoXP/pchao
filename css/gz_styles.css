@@ -136,3 +136,63 @@ a.spot-link, a.spot-link:visited, a.spot-link:hover, a.spot-link:active {
     color: inherit; /* Make links inherit text color from their parent (.spot) */
     display: block; /* Ensure the link takes up the card's block space for proper click area */
 }
+
+/* Styling for multilingual intro text on gz_scenes.html */
+.intro-multilingual {
+    margin-bottom: 1.5em; /* Space after the intro block */
+    padding: 0.5em 0;
+}
+
+.intro-multilingual p {
+    margin-bottom: 0.5em;
+    padding-left: 2.5em; /* Make space for language indicator (e.g., "中文:") */
+    position: relative; /* For positioning the ::before pseudo-element */
+    font-size: 1.05em; /* Slightly larger intro text */
+    color: #444; /* Slightly softer text color */
+}
+
+.intro-multilingual p:last-child {
+    margin-bottom: 0;
+}
+
+.intro-multilingual p[lang="zh-CN"]::before,
+.intro-multilingual p[lang="en"]::before,
+.intro-multilingual p[lang="fr"]::before {
+    content: ""; /* Will be set below */
+    font-weight: bold;
+    color: #00796B; /* Theme color */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.2em; /* Fixed width for alignment */
+    display: inline-block;
+}
+
+.intro-multilingual p[lang="zh-CN"]::before {
+    content: "中文:";
+}
+.intro-multilingual p[lang="en"]::before {
+    content: "EN:";
+}
+.intro-multilingual p[lang="fr"]::before {
+    content: "FR:";
+}
+
+/* Responsive adjustments for intro multilingual text */
+@media (max-width: 480px) {
+    .intro-multilingual p {
+        padding-left: 0;
+        text-indent: -2.5em; /* Hanging indent */
+        margin-left: 2.5em;  /* Counter the negative indent */
+    }
+
+    .intro-multilingual p[lang="zh-CN"]::before,
+    .intro-multilingual p[lang="en"]::before,
+    .intro-multilingual p[lang="fr"]::before {
+        position: static; /* Let it flow naturally */
+        display: inline; /* Allow it to be part of the text flow */
+        width: auto;
+        margin-right: 0.3em;
+        text-indent: 0; /* Reset text indent for the ::before itself */
+    }
+}
