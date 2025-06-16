@@ -1,0 +1,280 @@
+/* Import Google Fonts (already imported in gz_styles.css, but good for standalone use) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif; /* Consistent font */
+    margin: 0;
+    background-color: #f4f7f6; /* Consistent soft background */
+    color: #333333; /* Consistent text color */
+    line-height: 1.7; /* Slightly increased for readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-weight: 400;
+}
+
+header {
+    background-color: #00796B; /* Consistent Primary Teal */
+    color: #ffffff;
+    padding: 1.5em 1em; /* Consistent padding */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Consistent shadow */
+}
+
+header h1 {
+    font-family: 'Raleway', sans-serif; /* Consistent heading font */
+    margin: 0;
+    font-size: 2.3em; /* Slightly larger for detail page emphasis */
+    font-weight: 700;
+}
+
+nav {
+    background-color: #E8F5E9; /* Softer, complementary light green/teal */
+    padding: 0.9em 1em; /* Adjusted padding */
+    text-align: center;
+    border-bottom: 1px solid #C8E6C9; /* Softer border */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+nav a {
+    color: #00695C; /* Darker Teal for good contrast on light nav */
+    text-decoration: none;
+    margin: 0 18px; /* Increased spacing */
+    font-weight: 600; /* Slightly bolder for nav links */
+    font-size: 1.05em;
+    transition: color 0.2s ease-in-out;
+}
+
+nav a:hover, nav a:focus {
+    color: #004D40; /* Darkest Teal on hover/focus */
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 1.5em; /* Consistent padding with gz_styles main */
+    margin: 25px auto; /* Consistent margin */
+    max-width: 860px; /* Slightly adjusted for optimal text width */
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 10px; /* Consistent rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Consistent shadow */
+}
+
+article h2 {
+    font-family: 'Raleway', sans-serif;
+    color: #005A4D; /* Consistent darker teal for subheadings */
+    border-bottom: 2px solid #00796B;
+    padding-bottom: 0.4em; /* Adjusted padding */
+    margin-top: 0;
+    margin-bottom: 0.8em; /* Added margin bottom */
+    font-size: 1.9em;
+    font-weight: 700;
+}
+
+article h3 {
+    font-family: 'Raleway', sans-serif;
+    color: #00695C;
+    margin-top: 1.8em; /* Increased top margin */
+    margin-bottom: 0.6em; /* Added margin bottom */
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+article p {
+    margin-bottom: 1.2em; /* Increased paragraph spacing */
+    color: #444444; /* Slightly softer than pure #333 for long text */
+}
+
+/* For multilingual descriptions */
+.description-multilingual p {
+    margin-bottom: 0.5em; /* Tighter spacing between language versions */
+    padding-left: 1.5em; /* Indent to make space for language indicator */
+    position: relative;
+}
+.description-multilingual p:last-child {
+    margin-bottom: 1.5em; /* Normal spacing after the block */
+}
+.description-multilingual p[lang="zh-CN"]::before {
+    content: "中文:";
+    font-weight: bold;
+    color: #00796B; /* Theme color for indicator */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.description-multilingual p[lang="en"]::before {
+    content: "EN:";
+    font-weight: bold;
+    color: #00796B;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.description-multilingual p[lang="fr"]::before {
+    content: "FR:";
+    font-weight: bold;
+    color: #00796B;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* For image gallery */
+.spot-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Start with smaller thumbnails */
+    gap: 12px; /* Slightly increased gap */
+    margin-top: 25px; /* Consistent margin */
+    margin-bottom: 25px; /* Consistent margin */
+    padding: 10px;
+    background-color: #f9f9f9; /* Light background for gallery area */
+    border-radius: 8px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100px; /* Fixed height for uniform thumbnails */
+    object-fit: cover; /* Ensure images cover the area, cropping if needed */
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer; /* Indicate they might be clickable (e.g., for a lightbox) */
+}
+
+.gallery-image:hover {
+    transform: scale(1.08); /* Slightly more pronounced hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+}
+
+
+/* Article image class from previous version - can be removed if no longer used directly */
+/*
+article img.spot-image-detailed {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 25px auto;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+*/
+
+ul {
+    list-style-type: square; /* Changed for a slightly different feel */
+    margin-left: 25px; /* Adjusted indent */
+    padding-left: 0; /* Reset padding for ul */
+    margin-bottom: 1.2em;
+}
+
+li {
+    margin-bottom: 0.5em; /* Spacing between list items */
+}
+
+footer {
+    background-color: #263238; /* Dark Slate Grey - more modern than #333 */
+    color: #CFD8DC; /* Lighter text for footer */
+    text-align: center;
+    padding: 1.8em 1em; /* Increased padding */
+    margin-top: auto;
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* Adjusted */
+    }
+    main {
+        width: 95%;
+        padding: 1em; /* Reduced padding for smaller screens */
+    }
+    article h2 {
+        font-size: 1.7em;
+    }
+    article h3 {
+        font-size: 1.35em;
+    }
+    nav a {
+        margin: 0 10px; /* Reduced nav link spacing */
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* Adjusted */
+    }
+    main {
+        width: 95%;
+        padding: 1em; /* Reduced padding for smaller screens */
+    }
+    article h2 {
+        font-size: 1.7em;
+    }
+    article h3 {
+        font-size: 1.35em;
+    }
+    nav a {
+        margin: 0 10px; /* Reduced nav link spacing */
+        font-size: 1em;
+    }
+    .spot-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller thumbnails on tablet */
+        gap: 10px;
+    }
+    .gallery-image {
+        height: 80px; /* Adjust height for smaller grid */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7em;
+    }
+    nav {
+        padding: 0.7em 0.5em;
+    }
+    nav a {
+        margin: 0 6px; /* Further reduced nav link spacing */
+        font-size: 0.9em;
+    }
+    article h2 {
+        font-size: 1.5em;
+    }
+    article h3 {
+        font-size: 1.2em;
+    }
+    article p {
+        line-height: 1.65; /* Slightly more line height for small screen readability */
+    }
+    ul {
+        margin-left: 20px;
+    }
+    .spot-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Even smaller for mobile */
+        gap: 8px;
+    }
+    .gallery-image {
+        height: 70px; /* Adjust height for mobile grid */
+    }
+    .description-multilingual p {
+        padding-left: 0; /* Remove indent for language indicator */
+        text-indent: -1.8em; /* Use text-indent for hanging indent effect */
+        margin-left: 1.8em; /* Counter the negative indent */
+    }
+    .description-multilingual p[lang="zh-CN"]::before,
+    .description-multilingual p[lang="en"]::before,
+    .description-multilingual p[lang="fr"]::before {
+        position: static; /* Let it flow naturally */
+        display: inline-block; /* Allow margin/padding */
+        width: auto; /* Reset width if any was set */
+        margin-right: 0.3em;
+        text-indent: 0; /* Reset text indent for the ::before itself */
+    }
+}

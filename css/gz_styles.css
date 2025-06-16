@@ -1,0 +1,138 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif; /* New font */
+    margin: 0;
+    background-color: #f4f7f6; /* Softer, near-white background */
+    color: #333333; /* Slightly darker text for better contrast */
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+header {
+    background-color: #00796B; /* Primary Teal */
+    color: #ffffff;
+    padding: 1.5em 1em; /* Added horizontal padding */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Slightly enhanced shadow */
+}
+
+header h1 {
+    font-family: 'Raleway', sans-serif; /* New heading font */
+    margin: 0;
+    font-size: 2.2em; /* Slightly larger base size */
+    font-weight: 700;
+}
+
+main {
+    padding: 1.5em; /* Increased padding */
+    margin: 25px auto; /* Increased margin */
+    max-width: 1200px;
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer, more diffused shadow */
+}
+
+#scenic-spots-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* Increased gap */
+    margin-top: 20px;
+}
+
+.spot {
+    background-color: #ffffff; /* Cleaner card background */
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 10px; /* Consistent rounded corners */
+    padding: 18px; /* Increased padding */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out; /* Added shadow transition */
+    display: flex;
+    flex-direction: column;
+}
+
+.spot:hover {
+    transform: translateY(-6px); /* Slightly more lift */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+}
+
+.spot h3 {
+    font-family: 'Raleway', sans-serif; /* Heading font */
+    color: #005A4D; /* Darker, richer teal for headings */
+    margin-top: 0;
+    margin-bottom: 12px; /* Added margin bottom */
+    font-size: 1.6em; /* Adjusted size */
+    font-weight: 700;
+}
+
+.spot img {
+    width: 100%;
+    height: 220px; /* Increased height for better visuals */
+    object-fit: cover;
+    border-radius: 6px; /* Softer image corners */
+    margin-bottom: 15px; /* Increased margin */
+}
+
+.spot p {
+    font-size: 0.98em; /* Slightly larger text */
+    flex-grow: 1;
+    margin-bottom: 0;
+    color: #555555; /* Softer text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Adjusted breakpoint for tablets */
+    .spot img {
+        height: 200px;
+    }
+    .spot h3 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.9em; /* Adjusted size */
+    }
+    main {
+        width: 95%;
+        margin: 20px auto; /* Adjusted margin */
+        padding: 1em;
+    }
+    .spot h3 {
+        font-size: 1.35em; /* Fine-tuned size */
+    }
+    .spot img {
+        height: 180px;
+    }
+    #scenic-spots-list {
+        gap: 20px; /* Slightly reduced gap for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    .spot {
+        padding: 12px; /* Adjusted padding */
+    }
+    .spot h3 {
+        font-size: 1.25em;
+    }
+    .spot img {
+        height: 160px; /* Adjusted image height for mobile */
+    }
+    #scenic-spots-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styling for the new anchor tag wrapping spot cards */
+a.spot-link, a.spot-link:visited, a.spot-link:hover, a.spot-link:active {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Make links inherit text color from their parent (.spot) */
+    display: block; /* Ensure the link takes up the card's block space for proper click area */
+}
