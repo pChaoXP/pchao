@@ -360,3 +360,72 @@ footer p {
         }
     }
 }
+
+/* --- Lightbox Styles --- */
+
+.lightbox-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dimmed background */
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.lightbox-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1001; /* On top of the overlay */
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto; /* In case image is very large, though JS will try to fit */
+}
+
+.lightbox-modal img#lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(90vh - 100px); /* Adjust max-height to leave space for padding/close button */
+    margin: 0 auto; /* Center the image if it's smaller than the modal's max-width */
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Responsive adjustments for the modal content if needed */
+@media (max-width: 768px) {
+    .lightbox-modal {
+        padding: 15px;
+    }
+    .lightbox-close {
+        top: 5px;
+        right: 15px;
+        font-size: 24px;
+    }
+    .lightbox-modal img#lightbox-image {
+        max-height: calc(85vh - 80px);
+    }
+}
